@@ -1,0 +1,148 @@
+@font-face {
+    font-family: 'jagbyeol';
+    src: url('./fonts/나눔손글씨 따뜻한 작별.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'yeonjiche';
+    src: url('./fonts/나눔손글씨 연지체.ttf') format('truetype');
+}
+
+@import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
+
+/* App.module.css */
+/* Regular CSS syntax without :global */
+.app-container {
+    font-family: 'jagbyeol', 'yeonjiche';
+    box-sizing: border-box;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* 말풍선 스타일 */
+.user-message,
+.bot-message {
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    display: inline-block;
+    font-family: 'jagbyeol';
+    font-size: 18px;
+    line-height: 1.5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 사용자 말풍선 스타일 */
+.user-message {
+    background-color: #ee8961;
+    color: white;
+    align-self: flex-end;
+    float: right;
+    clear: both;
+    font-family: 'yeonjiche';
+}
+/* AI 말풍선 스타일 */
+.bot-message {
+    background-color: #f5a788;
+    color: #333;
+    align-self: flex-start;
+    float: left;
+    clear: both;
+}
+
+/* 채팅 창 전체 스타일 */
+.chat-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    width: 80vw;
+    max-width: 500px;
+    margin: auto;
+    background-color: #ffe9e0;
+    border: 2px solid #ee8961;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    font-family: 'jagbyeol';
+    font-size: 18px;
+}
+
+/* 대화 기록을 감싸는 컨테이너 스타일 */
+.message-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 80%;
+    max-width: 400px;
+    height: 60vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+
+    font-family: 'jagbyeol';
+    font-size: 18px;
+    margin: 30px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.message-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.message-list::-webkit-scrollbar-thumb {
+    background-color: #ee8961;
+    border-radius: 10px;
+}
+
+.message-list::-webkit-scrollbar-track {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 6px #fff;
+}
+
+
+.user-input-box input {
+    margin-top: 10px;
+    font-family: 'yeonjiche';
+    font-size: 18px;
+    padding: 10px;
+    width: 60%;
+    max-width: 300px;
+    border: 2px solid #ee8961;
+    border-radius: 20px;
+    margin-right: 5px;
+    align-self: flex-end;
+    float: right;
+}
+
+.user-input-box button {
+    font-family: 'yeonjiche';
+    font-size: 18px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    background-color: #ee8961;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    align-self: flex-end;
+    float: right;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Clearfix to handle floating elements */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.user-input-box button:hover{
+    box-shadow: 0px 2px 5px #968080;
+}
