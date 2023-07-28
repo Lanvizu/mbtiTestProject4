@@ -4,7 +4,7 @@ to = "index.html"
 status = 200
 
 [build]
-command = "npm run build"
+command = "CI= npm run build"
 publish = "build"
 
 [context.production.environment]
