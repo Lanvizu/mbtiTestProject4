@@ -1,6 +1,6 @@
 [build]
 command = "npm run build"
-publish = "build"
+publish = "fine-tuning-chatbot/"
 
 [context.production.environment]
 TOML_ENV_VAR = "From netlify.toml"
