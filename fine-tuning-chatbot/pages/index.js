@@ -220,13 +220,19 @@ const ChatApp = () => {
                                     onChange={(e) => setInputMessage(e.target.value)}
                                     className={styles["input-font"]} // 커스텀 폰트 적용
                                 />
-                                <button onClick={handleSendMessage} className={styles["button-font"]}>Send</button> {/* 커스텀 폰트 적용 */}
+                                <button onClick={handleSendMessage} className={styles["button-font"]}>Send</button> {}
                             </div>
                         </div>
                     </div>
                 </div>
 
-            </div></div>
+                <button onClick="redirectToChat()">채팅시작하기</button>
+                <script>
+                    function redirectToChat() {
+                    window.location.href = "https://www.example.com/chat"};
+                </script>
+            </div>
+        </div>
     );
 };
 

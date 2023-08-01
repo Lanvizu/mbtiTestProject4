@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>새로운 메인 화면</title>
+  <meta charSet="utf-8"/>
+  <meta name="viewport" content="width=device-width"/>
+  <meta name="next-head-count" content="2"/>
+  <link data-next-font="" rel="preconnect" href="/" crossorigin="anonymous"/>
+  <link rel="preload" href="styles/css/589e645360c5f13c.css" as="style"/>
+  <link rel="stylesheet" href="styles/css/589e645360c5f13c.css" data-n-p=""/>
+
   <style>
     .container {
       width: 80%;
       max-width: 600px;
       margin: 0 auto;
-      border: 2px solid #333;
+      border: 1px solid #333;
       border-radius: 10px;
       display: flex;
       flex-direction: column;
@@ -17,7 +22,7 @@
     .top-section {
       padding: 20px;
       text-align: center;
-      border-bottom: 2px solid #333;
+      border-bottom: 1px solid #333;
     }
 
     .bottom-section {
@@ -37,22 +42,21 @@
 
     .mainChar {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
   </style>
 </head>
 <body>
-<div class="mainChar">
-  <h1>AI와 대화를 통해 MBTI를 찾아보세요!</h1>
-</div>
-<div class="container">
-  <div class="top-section">
+  <div class="App_chat-app__JkqTr">
+      <h1 max-width="100px" align="center">AI와 대화를 통해 MBTI를 찾아보세요!</h1>
+    <div class="container">
+      <div class="top-section">
+      </div>
+      <div class="bottom-section">
+        <button  onclick="redirectToChat()">채팅시작하기</button>
+      </div>
+    </div>
   </div>
-  <div class="bottom-section">
-    <button class="start-button" onclick="redirectToChat()">채팅시작하기</button>
-  </div>
-</div>
-
 <script>
   function redirectToChat() {
     window.location.href = "https://www.example.com/chat";
