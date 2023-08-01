@@ -41,6 +41,30 @@
             background-color: #0056b3; /* 호버 시 배경색 변경 */
             cursor: pointer; /* 호버 시 커서 모양 변경 */
         }
+        /* 버튼 컨테이너 스타일 */
+        .buttonContainer {
+            /* 컨테이너 크기 및 위치 설정 */
+            width: 550px;
+            height: 400px;
+            /* 컨테이너 테두리 스타일 */
+            border: 1px solid #333333; /* 파란색 테두리 */
+            border-radius: 8px; /* 테두리 둥글기 조절 */
+            padding: 10px; /* 안쪽 여백 설정 */
+            /* 가운데 정렬 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        /* 설명 스타일 */
+        .description {
+            /* 텍스트 스타일 */
+            font-size: 14px;
+            color: #333; /* 검은색 텍스트 색상 */
+            text-align: center; /* 가운데 정렬 */
+        }
+        </style>
     </style>
 </head>
 <body>
@@ -48,6 +72,10 @@
     <div class="App2_app-container__BNn_F">
         <h3 class="App2_notbold__V3HlQ">mbti 테스트</h3>
         <hr>
+        <div class="buttonContainer">
+            <p class="description">이 버튼은 중요한 기능을 수행합니다.</p>
+        </div>
+
         <button type="button" class="navyBtn" onClick="location.href='index2.html'">대화 시작하기</button>
     </div>
 </div>
