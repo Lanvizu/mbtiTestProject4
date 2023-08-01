@@ -4,9 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page 1</title>
+
+    <link data-next-font="" rel="preconnect" href="/" crossorigin="anonymous"/>
+    <link rel="preload" href="styles/css/3ca3e1819243c903.css" as="style"/>
+    <link rel="stylesheet" href="styles/css/3ca3e1819243c903.css" data-n-p=""/>
+    <style>
+        hr {
+            width: 550px;
+        }
+        .App2_app-container__BNn_F {
+            font-family: omyu_pretty;
+            box-sizing: border-box;
+            margin: 0;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            place-items: center;
+            overflow: auto;
+            flex-direction: column;
+        }
+        .mainChar {
+            margin: 10px;
+        }
+        .navyBtn {
+            width: 150px;
+            height: 40px;
+            border-radius: 3px;
+            color: #332b28;
+            font-size: 16px;
+        }
+
+        /* 버튼 호버 효과 */
+        .navyBtn:hover {
+            background-color: #0056b3; /* 호버 시 배경색 변경 */
+            cursor: pointer; /* 호버 시 커서 모양 변경 */
+        }
+    </style>
 </head>
 <body>
-<h1>This is Page 1</h1>
-<a href="/index2.html">Go to Page 2</a>
+<div>
+    <div class="App2_app-container__BNn_F">
+        <h3 class="App2_notbold__V3HlQ">mbti 테스트</h3>
+        <hr>
+        <button type="button" class="navyBtn" onClick="location.href='index2.html'">대화 시작하기</button>
+    </div>
+</div>
 </body>
 </html>
