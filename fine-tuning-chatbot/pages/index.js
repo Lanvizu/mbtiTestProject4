@@ -220,8 +220,6 @@ const ChatApp = () => {
                                     onChange={(e) => setInputMessage(e.target.value)}
                                     className={styles["input-font"]} // 커스텀 폰트 적용
                                 />
-                                <a href="firstPage.html" >채팅시작하기</a>
-                                <button onClick="location.href='firstPage.html'" className={styles["button-font"]}>채팅시작하기</button> {}
                                 <button onClick={handleSendMessage} className={styles["button-font"]}>Send</button> {}
                             </div>
                         </div>
