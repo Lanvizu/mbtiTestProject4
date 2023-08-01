@@ -1,7 +1,10 @@
 import React, { useState , useEffect } from "react";
-import styles from "../public/styles/Neumorphism.module.css";
+import styles from "../public/styles/App2.module.css";
 import {convertLabelToStr, BACKEND_URL, questions, ans_added } from "../public/styles/value_list"
 import Image from 'next/image';
+import MYAPP from "./_app.js"
+import { CiChat1 } from "react-icons/ci";
+import { SiProbot } from "react-icons/si";
 
 var loading_wait = 0;
 var all_log = '';
@@ -42,9 +45,9 @@ const ChatApp = () => {
             isUser: false,
         };
         setMessages([initialBotMessage]);
-        var t = questions[Math.floor(Math.random() * questions.length)]
+        var t = questions[Math.floor(Math.random() * questions.length)];
         initialBotMessage = {
-            text: t,
+            text: "첫 번째 질문! " + t,
             isUser: false,
         };
         setMessages((prevMessages) => [...prevMessages, initialBotMessage]);
@@ -63,7 +66,7 @@ const ChatApp = () => {
                     user_log += inputMessage + ", ";
                     //내용만 보여지게 표시
                     setInputMessage(""); // 메시지 전송 후 입력창 초기화
-                    var user_message = "\nfriend: "+inputMessage+" \n\n### \nyou: " //실제 챗봇에게 보내는 문자열 형식
+                    var user_message = "\nfriend: "+inputMessage+" \nyou: " //실제 챗봇에게 보내는 문자열 형식
                     if(need_ans_add==1){
                         user_message += ans_added[Math.floor(Math.random() * ans_added.length)]
                         need_ans_add = 0;
@@ -89,21 +92,24 @@ const ChatApp = () => {
                         const botResponseMessage = { text: bot_ans, isUser: false };
                         setMessages((prevMessages) => [...prevMessages, botResponseMessage]);
                         loading_wait = 0;
+                        if(Math.random()>0.5)
+                        {
+                            if(bot_ans.substr(-1)!='?' || bot_ans.substr(-1)!='?!')
+                            {
+                                var t = "다음 질문! " + questions[Math.floor(Math.random() * questions.length)];
+                                var initialBotMessage = {
+                                    text: t,
+                                    isUser: false,
+                                };
+                                setMessages((prevMessages) => [...prevMessages, initialBotMessage]);
+                                all_log = "\nyou: " + t;
+                                need_ans_add = 1;
+                            }
+                        }
                     } catch (error) {
                         console.error("Error sending message:", error);
                         loading_wait = 0;
                     }
-                    if(Math.random()>0.7){
-                        var t = questions[Math.floor(Math.random() * questions.length)]
-                        var initialBotMessage = {
-                            text: t,
-                            isUser: false,
-                        };
-                        setMessages((prevMessages) => [...prevMessages, initialBotMessage]);
-                        all_log = "\nyou: " + t;
-                        need_ans_add = 1;
-                    }
-
                 }
                 else if(tern == max_tern)
                 {
@@ -115,7 +121,7 @@ const ChatApp = () => {
                         //내용만 보여지게 표시
                         setInputMessage(""); // 메시지 전송 후 입력창 초기화
 
-                        const user_message = "\nfriend: "+inputMessage+" \n\n### \nyou: "//실제 챗봇에게 보내는 문자열 형식
+                        const user_message = "\nfriend: "+inputMessage+" \nyou: "//실제 챗봇에게 보내는 문자열 형식
                         all_log += user_message;//대화기록에 추가
                         try
                         {
@@ -192,29 +198,35 @@ const ChatApp = () => {
     };
 
     return (
-
         <div className={styles["app-container"]}>
-            <div className={styles["chat-app"]}>
-                <div className={styles["chat-box"]}>
-                    <div className={styles["message-list"]} id="message-list" name="message-list">
-                        {messages.map((message, index) => (
-                            <Message key={index} message={message} />
-                        ))}
-                    </div>
+            <div>
+                <h3><span className={styles["notbold"]}><CiChat1/> mbti 테스트<hr/></span></h3>
+                <div>
+                    <div className={styles["chat-app"]}>
+                        <div className={styles["chat-box"]}>
+                            <div className={styles["message-list"]} id="message-list" name="message-list">
+                                {messages.map((message, index) => (
+                                    <Message key={index} message={message} />
+                                ))}
+                            </div>
 
-                    <div className={styles["spin"]} id="spin" name="spin"><img src="spin.gif" alt="spinner"/></div>
-                    <div className={styles["user-input-box"]}>
-                        <input
-                            type="text"
-                            value={inputMessage}
-                            onChange={(e) => setInputMessage(e.target.value)}
-                            className={styles["input-font"]} // 커스텀 폰트 적용
-                        />
-                        <button onClick={handleSendMessage} className={styles["button-font"]}>Send</button> {/* 커스텀 폰트 적용 */}
+                            <div className={styles["spin"]} id="spin" name="spin"><img src="/spin.gif" alt="spinner"/></div>
+                            <div className={styles["user-input-box"]}>
+                                <input
+                                    type="text"
+                                    value={inputMessage}
+                                    maxLength={30}
+
+                                    onChange={(e) => setInputMessage(e.target.value)}
+                                    className={styles["input-font"]} // 커스텀 폰트 적용
+                                />
+                                <button onClick={handleSendMessage} className={styles["button-font"]}>Send</button> {/* 커스텀 폰트 적용 */}
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+
+            </div></div>
     );
 };
 
@@ -223,9 +235,16 @@ const ChatApp = () => {
 const Message = ({ message }) => {
     const messageClass = message.isUser ? styles["user-message"] : styles["bot-message"]; // Use styles object for dynamic class names
 
+    if(message.isUser){
+        return (
+            <div className={messageClass}>
+                <p>{message.text}</p>
+            </div>
+        );
+    }
     return (
         <div className={messageClass}>
-            <p>{message.text}</p>
+            <p>&nbsp;&nbsp;<SiProbot/><br/>{message.text}</p>
         </div>
     );
 };
