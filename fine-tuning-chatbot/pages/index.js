@@ -226,11 +226,8 @@ const ChatApp = () => {
                     </div>
                 </div>
 
-                <button onClick="redirectToChat()">채팅시작하기</button>
-                <script>
-                    function redirectToChat() {
-                    window.location.href = "https://www.example.com/chat"};
-                </script>
+                <a href="firstPage.html" >채팅시작하기</a>
+
             </div>
         </div>
     );
