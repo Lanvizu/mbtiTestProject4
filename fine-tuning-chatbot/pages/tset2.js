@@ -22,7 +22,7 @@ import ChatApp from "@/pages/index2";
 //     },[]);
 function kakaoShare(){
 
-    const { Kakao } = window;
+    // const { Kakao } = window;
     const shareKakao = () =>{
 
         Kakao.Share.sendDefault({
