@@ -2,7 +2,6 @@
 import Link from 'next/link';
 
 import { useEffect } from "react";
-import ShareKakaoFunction from '../pages/shareKakao';
 // kakao 기능 동작을 위해 넣어준다.
 
 const Page1 = () => {
@@ -12,10 +11,6 @@ const Page1 = () => {
             <Link href="/index2">
                 <a>Go to Page 2</a>
             </Link>
-            {/*<div>*/}
-            {/*    /!* ShareKakaoFunction 컴포넌트를 렌더링합니다 *!/*/}
-            {/*    <ShareKakaoFunction />*/}
-            {/*</div>*/}
         </div>
     );
 };
