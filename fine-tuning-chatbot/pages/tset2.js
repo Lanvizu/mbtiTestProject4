@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 // kakao 기능 동작을 위해 넣어준다.
-const { Kakao } = window;
 
 
 function kakaoShare(){
@@ -23,38 +22,39 @@ function kakaoShare(){
     //     },[]);
 
 
-        const shareKakao = () =>{
+    const { Kakao } = window;
+    const shareKakao = () =>{
 
-            Kakao.Share.sendDefault({
-                objectType: 'feed',
-                content: {
-                    title: '오늘의 디저트',
-                    description: '아메리카노, 빵, 케익',
-                    imageUrl:
-                        'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
+        Kakao.Share.sendDefault({
+            objectType: 'feed',
+            content: {
+                title: '오늘의 디저트',
+                description: '아메리카노, 빵, 케익',
+                imageUrl:
+                    'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
+                link: {
+                    mobileWebUrl: "https://master--mbtitestchat.netlify.app/",
+                },
+            },
+            buttons: [
+                {
+                    title: '나도 테스트 하러가기',
                     link: {
                         mobileWebUrl: "https://master--mbtitestchat.netlify.app/",
                     },
                 },
-                buttons: [
-                    {
-                        title: '나도 테스트 하러가기',
-                        link: {
-                            mobileWebUrl: "https://master--mbtitestchat.netlify.app/",
-                        },
-                    },
-                ],
-            });
-        }
+            ],
+        });
+    }
 
-        return(
-            <>
-                <button
-                    className='grey-btn'
-                    onClick={() => {
-                        shareKakao()
-                    }}
-                > 카카오톡 공유하기 </button>
-            </>
-        )
+    return(
+        <>
+            <button
+                className='grey-btn'
+                onClick={() => {
+                    shareKakao()
+                }}
+            > 카카오톡 공유하기 </button>
+        </>
+    )
 }
