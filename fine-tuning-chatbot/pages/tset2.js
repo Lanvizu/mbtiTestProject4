@@ -1,6 +1,7 @@
 /* eslint-disable*/
 
 import { useEffect } from "react";
+import ChatApp from "@/pages/index2";
 // kakao 기능 동작을 위해 넣어준다.
 
 
@@ -58,3 +59,4 @@ function kakaoShare(){
         </>
     )
 }
+export default kakaoShare();
