@@ -6,6 +6,7 @@ import MYAPP from "./_app.js"
 import { CiChat1 } from "react-icons/ci";
 import { SiProbot } from "react-icons/si";
 
+
 var loading_wait = 0;
 var all_log = '';
 var tern = 0;
@@ -17,6 +18,7 @@ var need_user_log_len = 50 ;
 var ending = 0;
 var mid_check = 0;
 const max_tern = 5;
+
 
 const ChatApp = () => {
     const [messages, setMessages] = useState([]);
@@ -34,6 +36,7 @@ const ChatApp = () => {
         var s = document.getElementById('spin');
         s.style.visibility  = "hidden";
     }
+
     useEffect(() => {
         scrollToBottom(); // 컴포넌트가 렌더링될 때 스크롤을 아래로 이동
     }, [messages]);
@@ -229,8 +232,6 @@ const ChatApp = () => {
             </div></div>
     );
 };
-
-
 
 const Message = ({ message }) => {
     const messageClass = message.isUser ? styles["user-message"] : styles["bot-message"]; // Use styles object for dynamic class names
