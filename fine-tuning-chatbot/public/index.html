@@ -9,7 +9,10 @@
     <link rel="preload" href="styles/css/3ca3e1819243c903.css" as="style"/>
     <link rel="stylesheet" href="styles/css/3ca3e1819243c903.css" data-n-p=""/>
 
+    <link href="pages/tset2.js"/>
+
     <!--    카카오톡 공유-->
+<!--    <script defer src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>-->
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.3.0/kakao.min.js"
             integrity="sha384-70k0rrouSYPWJt7q9rSTKpiTfX6USlMYjZUtr1Du+9o4cGvhPAWxngdtVZDdErlh" crossorigin="anonymous"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
@@ -89,11 +92,11 @@
 
         <button type="button" class="navyBtn" onClick="location.href='index2.html'">대화 시작하기</button>
 
-        <button type="button" onclick="js:kakaoShare()">공유하기</button>
+        <button type="button" onclick="kakaoShare()">공유하기</button>
     </div>
 </div>
 
-<script src="../pages/tset2.js"></script>
+<script type="module" src="../pages/tset2.js"></script>
 
 </body>
 </html>

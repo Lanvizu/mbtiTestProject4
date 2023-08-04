@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import ChatApp from "@/pages/index2";
+
 // kakao 기능 동작을 위해 넣어준다.
 
 
@@ -24,7 +25,6 @@ function kakaoShare(){
 
     // const { Kakao } = window;
     const shareKakao = () =>{
-
         Kakao.Share.sendDefault({
             objectType: 'feed',
             content: {
@@ -48,14 +48,7 @@ function kakaoShare(){
     }
 
     return(
-        <>
-            <button
-                className='grey-btn'
-                onClick={() => {
-                    shareKakao()
-                }}
-            > 카카오톡 공유하기 </button>
-        </>
+            <button className='grey-btn' onClick={() => {shareKakao()}}> 카카오톡 공유하기 </button>
     )
 }
 export default kakaoShare;
