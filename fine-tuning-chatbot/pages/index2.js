@@ -29,7 +29,7 @@ const shareKakaoLink = (userId) => {
     // @ts-ignore
     window.Kakao.Link.createCustomButton({
         container: "#kakao-link-btn",
-        templateId: "#id here",
+        templateId: "96856",
         templateArgs: {
             userId: `${userId}`,
         },
