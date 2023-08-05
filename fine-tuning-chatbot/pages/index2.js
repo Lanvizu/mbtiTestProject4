@@ -315,7 +315,7 @@ const ChatApp = () => {
     };
 
     return loading ? (
-        <div className={styles["spin"]} id="spin" name="spin"><img src="spin.gif" alt="loading" /></div> // loading
+        <div className={styles["spin"]} id="spin" name="spin"><img src="../public/spin.gif" alt="loading" /></div> // loading
     ) : (
         <div className={styles["app-container"]}>
             <div>
@@ -329,7 +329,7 @@ const ChatApp = () => {
                                 ))}
                             </div>
 
-                            <div className={styles["spin"]} id="spin" name="spin"><img src="spin.gif" alt="loading" /></div>
+                            <div className={styles["spin"]} id="spin" name="spin"><img src="../public/spin.gif" alt="loading" /></div>
                             <div className={styles["user-input-box"]}>
                                 <input
                                     type="text"
