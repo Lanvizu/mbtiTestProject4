@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "../public/styles/App2.module.css";
-import { convertLabelToStr, BACKEND_URL, questions, ans_added, intro_add, ans_re_1, ans_re_2, ans_re_3, ans_middle } from "@/public/styles/value_list"
+import { convertLabelToStr, BACKEND_URL, questions, ans_added, intro_add, ans_re_1, ans_re_2, ans_re_3, ans_middle } from "../public/styles/value_list"
 import Image from 'next/image';
 import { CiChat1 } from "react-icons/ci";
 import { SiProbot } from "react-icons/si";
@@ -29,7 +29,7 @@ const shareKakaoLink = (userId) => {
     // @ts-ignore
     window.Kakao.Link.createCustomButton({
         container: "#kakao-link-btn",
-        templateId: "96856",
+        templateId: "#id here",
         templateArgs: {
             userId: `${userId}`,
         },
@@ -43,7 +43,7 @@ const onShareKakaoClick = () => {
 
 
 const scrollToBottom = () => {
-    let el = document.getElementById('message-list');
+    var el = document.getElementById('message-list');
     el.scrollTop = el.scrollHeight;
 }
 
@@ -79,11 +79,11 @@ const ChatApp = () => {
     }
 
     const loading_on = () => {
-        let s = document.getElementById('spin');
+        var s = document.getElementById('spin');
         s.style.visibility = "visible";
     }
     const loading_off = () => {
-        let s = document.getElementById('spin');
+        var s = document.getElementById('spin');
         s.style.visibility = "hidden";
     }
 
@@ -95,19 +95,19 @@ const ChatApp = () => {
     }, [messages]);
 
     useEffect(() => {//처음 한 번만 실행
-        const initialBotMessage = {
+        var initialBotMessage = {
             text:
                 "안녕, 친구야!🤗 혹시 내가 너의 mbti를 맞춰봐도 될까?",
             isUser: false,
         };
         setMessages([initialBotMessage]);
 
-        const botResponseMessage3 = { text: "_kakao공유하기", isUser: false }; // kakao 공유하기 말풍선
+        var botResponseMessage3 = { text: "_kakao공유하기", isUser: false }; // kakao 공유하기 말풍선
         setMessages((prevMessages) => [...prevMessages, botResponseMessage3]);
 
         if (window.Kakao) { // kakao init
             if (!window.Kakao.isInitialized()) {
-                window.Kakao.init("0b8734b12b69c143778a10e9e76f4abd")
+                window.Kakao.init(JAVASCRIPT_KEY)
                 window.Kakao.isInitialized();
             }
         }
@@ -118,7 +118,7 @@ const ChatApp = () => {
     const handleSendMessage = async () => {
         // id of the chat container ---------- ^^^
         if (inputMessage.trim() !== "") {
-            if (loading_wait === 0) {
+            if (loading_wait == 0) {
                 if (tern <= 0) {
                     loading_wait = 1;
                     const newMessage = { text: inputMessage, isUser: true };
@@ -135,23 +135,23 @@ const ChatApp = () => {
                         body: JSON.stringify({ data: [inputMessage] })
                     });
 
-                    const data = await response.json();
+                    var data = await response.json();
                     const yn = parseInt(data.data.toString());
                     sleep(500);
-                    if (yn === 0) {
-                        const bot_ans = ans_re_1[Math.floor(Math.random() * ans_re_1.length)]
+                    if (yn == 0) {
+                        var bot_ans = ans_re_1[Math.floor(Math.random() * ans_re_1.length)]
                             + " " + ans_re_2[Math.floor(Math.random() * ans_re_2.length)]
                             + " " + ans_re_3[Math.floor(Math.random() * ans_re_3.length)];
                         // 챗봇의 응답 메시지를 메시지 목록에 추가
-                        const botResponseMessage = { text: bot_ans, isUser: false };
+                        var botResponseMessage = { text: bot_ans, isUser: false };
                         setMessages((prevMessages) => [...prevMessages, botResponseMessage]);
                         tern -= 1;
                     }
                     else {
-                        const qindex = Math.floor(Math.random() * questionslist.length);
-                        const t = questionslist[qindex];
+                        var qindex = Math.floor(Math.random() * questionslist.length);
+                        var t = questionslist[qindex];
                         questionslist.splice(qindex, 1); // 이미 한 질문은 제외
-                        const initialBotMessage2 = {
+                        var initialBotMessage2 = {
                             text: "좋아! 테스트를 위해 나랑 조금만 이야기하면 돼! " + "\n"
                                 + "보다 정확한 결과를 위해 단답은 피해줘~  " + "\n "
                                 + intro_add[Math.floor(Math.random() * intro_add.length)] + " 첫 번째 질문! " + t,
@@ -172,8 +172,8 @@ const ChatApp = () => {
                     user_log += inputMessage + " \n";
                     //내용만 보여지게 표시
                     setInputMessage(""); // 메시지 전송 후 입력창 초기화
-                    let user_message = "\nfriend: " + inputMessage + " \n\n### \nyou: " //실제 챗봇에게 보내는 문자열 형식
-                    if (need_ans_add === 1) {
+                    var user_message = "\nfriend: " + inputMessage + " \n\n### \nyou: " //실제 챗봇에게 보내는 문자열 형식
+                    if (need_ans_add == 1) {
                         user_message += ans_added[Math.floor(Math.random() * ans_added.length)]
                         need_ans_add = 0;
                     }
@@ -191,21 +191,21 @@ const ChatApp = () => {
                         if (!response.ok) {
                             throw new Error("Network response was not ok");
                         }
-                        const data = await response.json();
-                        let bot_ans = data.data.toString();
+                        var data = await response.json();
+                        var bot_ans = data.data.toString();
                         all_log += bot_ans;
                         // 챗봇의 응답 메시지를 메시지 목록에 추가
-                        let botResponseMessage = { text: bot_ans, isUser: false };
+                        var botResponseMessage = { text: bot_ans, isUser: false };
                         if (Math.random() > 0.4) {
-                            if (bot_ans.indexOf('?') === -1) { // bot 답변에 ?가 없을 때
+                            if (bot_ans.indexOf('?') == -1) { // bot 답변에 ?가 없을 때
                                 if (user_log.length >= need_user_log_len / 2) {
-                                    if (mid_check === 0) {
+                                    if (mid_check == 0) {
                                         bot_ans += "\n" + ans_middle[Math.floor(Math.random() * ans_middle.length)];
                                         mid_check = 1;
                                     }
                                 }
-                                const qindex = Math.floor(Math.random() * questionslist.length);
-                                const t = questionslist[qindex];
+                                var qindex = Math.floor(Math.random() * questionslist.length);
+                                var t = questionslist[qindex];
                                 questionslist.splice(qindex, 1);
                                 botResponseMessage = {
                                     text: bot_ans + "\n" + " 다음 질문! " + t,
@@ -220,7 +220,7 @@ const ChatApp = () => {
                         console.error("Error sending message:", error);
                     }
                 }
-                else if (tern === max_tern) {
+                else if (tern == max_tern) {
                     if (user_log.length >= need_user_log_len) {
                         try {
                             loading_wait = 1;
@@ -230,8 +230,8 @@ const ChatApp = () => {
                             //내용만 보여지게 표시
                             setInputMessage(""); // 메시지 전송 후 입력창 초기화
 
-                            let user_message = "\nfriend: " + inputMessage + " \n\n### \nyou: "//실제 챗봇에게 보내는 문자열 형식
-                            if (need_ans_add === 1) {
+                            var user_message = "\nfriend: " + inputMessage + " \n\n### \nyou: "//실제 챗봇에게 보내는 문자열 형식
+                            if (need_ans_add == 1) {
                                 user_message += ans_added[Math.floor(Math.random() * ans_added.length)]
                                 need_ans_add = 0;
                             }
@@ -250,7 +250,7 @@ const ChatApp = () => {
                                 if (!response.ok) {
                                     throw new Error("Network response was not ok");
                                 }
-                                const data = await response.json();
+                                var data = await response.json();
                                 const bot_ans = data.data.toString();
                                 all_log += bot_ans;
                                 // 챗봇의 응답 메시지를 메시지 목록에 추가
@@ -268,7 +268,7 @@ const ChatApp = () => {
                                 body: JSON.stringify({ data: [user_log] }),
                             });
 
-                            let data = await response.json();
+                            var data = await response.json();
                             data = data.data;
                             data = eval('(' + data + ')');
                             const bot_ans = convertLabelToStr(data[0]['label']);
@@ -281,10 +281,10 @@ const ChatApp = () => {
                                 + Math.round(data[1]['score'] * 1000) / 10 + "%, " + "\n"
                                 + convertLabelToStr(data[2]['label']) + " : "
                                 + Math.round(data[2]['score'] * 1000) / 10 + "%, ";
-                            const botResponseMessage2 = { text: t, isUser: false };
+                            var botResponseMessage2 = { text: t, isUser: false };
                             setMessages((prevMessages) => [...prevMessages, botResponseMessage2]);
 
-                            const botResponseMessage3 = { text: "_kakao공유하기", isUser: false }; // kakao 공유하기 말풍선
+                            var botResponseMessage3 = { text: "_kakao공유하기", isUser: false }; // kakao 공유하기 말풍선
                             setMessages((prevMessages) => [...prevMessages, botResponseMessage3]);
                         }
                         catch (error) {
@@ -292,7 +292,7 @@ const ChatApp = () => {
                         }
                     }
                     else {
-                        const initialBotMessage = {
+                        var initialBotMessage = {
                             text:
                                 "미안" + ans_re_3[Math.floor(Math.random() * ans_re_3.length)] + "...모르겠어!" + "\n" + "\n"
                                 + "(분석을 위한 글자 수를 채우지 못했습니다. 조금 더 성실히 대답해주세요)",
@@ -362,7 +362,7 @@ const Message = ({ message }) => {
         );
     }
     else {
-        if (message.text === "_kakao공유하기") {//공유하기
+        if (message.text == "_kakao공유하기") {//공유하기
             return (
                 <div className={messageClass}>
                     <button className={styles["kakaoButton"]}
