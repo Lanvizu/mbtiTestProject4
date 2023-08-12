@@ -398,7 +398,7 @@ const Message = ({ message }) => {
                     <button className={styles["kakaoButton"]}
                             id="kakao-link-btn"
                             type="button"
-                            onClick={() => shareKakao("https://master--mbtitestchat.netlify.app", "mbti", share_text)}
+                            onClick={() => shareKakao("https://master--mbtitestchat.netlify.app/index2.html", "mbti", share_text)}
                     >kakao로 결과 공유하기
                         <img src="https://seeklogo.com/images/K/kakaotalk-logo-274D191B7B-seeklogo.com.png" height="30"/>
                     </button>
