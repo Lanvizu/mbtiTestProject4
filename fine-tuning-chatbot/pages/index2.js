@@ -345,6 +345,12 @@ const ChatApp = () => {
             }
         }
     };
+    const handleOnKeyPress = e => {
+        if (e.key === 'Enter') {
+            handleSendMessage(); // Enter 입력이 되면 클릭 이벤트 실행
+        }
+    };
+
 
     return loading ? (
         <div className={styles["spin"]} id="spin" name="spin"><img src="spin.gif" alt="loading" /></div> // loading
@@ -368,6 +374,7 @@ const ChatApp = () => {
                                     value={inputMessage}
                                     maxLength={30}
 
+                                    onKeyUp={handleOnKeyPress}
                                     onChange={(e) => setInputMessage(e.target.value)}
                                     className={styles["input-font"]} // 커스텀 폰트 적용
                                 />
