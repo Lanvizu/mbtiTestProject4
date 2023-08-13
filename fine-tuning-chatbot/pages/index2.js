@@ -41,7 +41,7 @@ export const shareKakao = (route, title, text) => { // url이 id값에 따라 �
             content: {
                 title: title, // 인자값으로 받은 title
                 description: text, // 인자값으로 받은 title
-                imageUrl: "이미지 url",
+                imageUrl: "https://user-images.githubusercontent.com/139981434/257801881-fbc96ead-3194-4745-be55-6b6d55524b51.png",
                 link: {
                     mobileWebUrl: route, // 인자값으로 받은 route(uri 형태)
                     webUrl: route
