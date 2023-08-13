@@ -49,7 +49,7 @@ export const shareKakao = (route, title, text) => { // url이 id값에 따라 �
             },
             buttons: [
                 {
-                    title: "title",
+                    title: "대화하러 가기",
                     link: {
                         mobileWebUrl: route,
                         webUrl: route
@@ -134,8 +134,6 @@ const ChatApp = () => {
         };
         setMessages([initialBotMessage]);
 
-        var botResponseMessage3 = { text: "_kakao공유하기", isUser: false }; // kakao 공유하기 말풍선
-        setMessages((prevMessages) => [...prevMessages, botResponseMessage3]);
         scrollToBottom();
     }, [ ]);
 
