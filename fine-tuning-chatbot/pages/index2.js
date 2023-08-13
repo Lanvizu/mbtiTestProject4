@@ -39,7 +39,7 @@ export const shareKakao = (route, title, text) => { // url이 id값에 따라 �
         kakao.Link.sendDefault({
             objectType: "feed", // 카카오 링크 공유 여러 type들 중 feed라는 타입 -> 자세한 건 카카오에서 확인
             content: {
-                title: title, // 인자값으로 받은 title
+                title: "대화하러 가기",
                 description: text, // 인자값으로 받은 title
                 imageUrl: "https://user-images.githubusercontent.com/139981434/257801881-fbc96ead-3194-4745-be55-6b6d55524b51.png",
                 link: {
@@ -309,13 +309,12 @@ const ChatApp = () => {
                             var botResponseMessage2 = { text: t, isUser: false };
                             setMessages((prevMessages) => [...prevMessages, botResponseMessage2]);
 
-                            share_text = "내 mbti는?!" + "\n" + convertLabelToStr(data[0].label) + " : "
+                            share_text = convertLabelToStr(data[0].label) + " : "
                                 + Math.round(data[0]['score'] * 1000) / 10 + "%, " + "\n"
                                 + convertLabelToStr(data[1].label) + " : "
-                                + Math.round(data[1]['score'] * 1000) / 10 + "%, " + "\n"
+                                + Math.round(data[1]['score'] * 1000) / 10 + "%, " + ", "
                                 + convertLabelToStr(data[2]['label']) + " : "
                                 + Math.round(data[2]['score'] * 1000) / 10 + "%, ";
-
                             var botResponseMessage3 = { text: "_kakao공유하기", isUser: false }; // kakao 공유하기 말풍선
                             setMessages((prevMessages) => [...prevMessages, botResponseMessage3]);
                         }
@@ -351,7 +350,6 @@ const ChatApp = () => {
         }
     };
 
-
     return loading ? (
         <div className={styles["spin"]} id="spin" name="spin"><img src="spin.gif" alt="loading" /></div> // loading
     ) : (
@@ -373,7 +371,6 @@ const ChatApp = () => {
                                     type="text"
                                     value={inputMessage}
                                     maxLength={30}
-
                                     onKeyUp={handleOnKeyPress}
                                     onChange={(e) => setInputMessage(e.target.value)}
                                     className={styles["input-font"]} // 커스텀 폰트 적용
@@ -408,8 +405,7 @@ const Message = ({ message }) => {
                     <button className={styles["kakaoButton"]}
                             id="kakao-link-btn"
                             type="button"
-                            // onClick={() => shareKakao("https://master--mbtitestchat.netlify.app/index2.html", "mbti", share_text)}
-                            onClick={() => shareKakao(r.toString(), "mbti", share_text)}
+                            onClick={() => shareKakao(r.toString(), "내 mbti는?! #채팅형_mbti_테스트", share_text)}
                     >kakao로 결과 공유하기
                         <img src="https://seeklogo.com/images/K/kakaotalk-logo-274D191B7B-seeklogo.com.png" height="30"/>
                     </button>
