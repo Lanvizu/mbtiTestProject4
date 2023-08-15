@@ -88,10 +88,19 @@
             height: 35px;
             display: inline-block;
             /*margin-right: 20px;*/
-            margin: 10px;
+            margin: 12px;
+        }
+        .kakaoIcon{
+            height: 35px;
+            display: inline-block;
+            margin: 12px;
         }
         .gitContainer {
-            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+        .gitbox{
+            margin-right: 15px;
         }
         </style>
 </head>
@@ -109,18 +118,19 @@
 
     </div>
     <div class="gitContainer">
-        <a href="https://github.com/ldh-Hoon/Chatbot_Mbti_Test">
-            <img class="gitIcon" src="free-icon-github-logo-25231.png" alt="구현 깃허브">
-        </a>
-    </div>
-    <div id="app">
-        <!-- 결과를 표시할 컨테이너 -->
-        <img
-                src="https://seeklogo.com/images/K/kakaotalk-logo-274D191B7B-seeklogo.com.png"
-                height="30"
-                onclick="shareKakaoFunction()"
-                style="cursor: pointer;"
-        />
+        <div class="gitbox">
+            <a href="https://github.com/ldh-Hoon/Chatbot_Mbti_Test">
+                <img class="gitIcon" src="free-icon-github-logo-25231.png" alt="구현 깃허브">
+            </a>
+        </div>
+        <div>
+            <img class="kakaoIcon"
+                    src="https://seeklogo.com/images/K/kakaotalk-logo-274D191B7B-seeklogo.com.png"
+                    height="30"
+                    onclick="shareKakaoFunction()"
+                    style="cursor: pointer;"
+            />
+        </div>
     </div>
 
     <script>
