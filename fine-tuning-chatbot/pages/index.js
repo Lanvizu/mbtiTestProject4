@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React, { useEffect } from "react";
 import styles from "@/public/styles/App2.module.css";
 
-export const shareKakao = (route, title, text) => { // url이 id값에 따라 변경되기 때문에 route를 인자값으로 받아줌
+export const shareKakao1 = (route, title, text) => { // url이 id값에 따라 변경되기 때문에 route를 인자값으로 받아줌
     if (window.Kakao) {
         const kakao = window.Kakao;
         if (!kakao.isInitialized()) {
@@ -39,22 +39,22 @@ export const shareKakao = (route, title, text) => { // url이 id값에 따라 �
 
 const Page1 = () => {
     return (
-        // <div>
-        //     <h1>This is Page 1</h1>
-        //     <Link href="/index2">
-        //         <a>Go to Page 2</a>
-        //     </Link>
-        // </div>
-
         <div>
-            <button className={styles["kakaoButton"]}
-                    id="kakao-link-btn"
-                    type="button"
-                    onClick={() => shareKakao(r.toString(), "내 mbti는?! #채팅형_mbti_테스트", share_text)}
-            >
-                <img src="https://seeklogo.com/images/K/kakaotalk-logo-274D191B7B-seeklogo.com.png" height="30"/>
-            </button>
+            <h1>This is Page 1</h1>
+            <Link href="/index2">
+                <a>Go to Page 2</a>
+            </Link>
         </div>
+
+        // <div>
+        //     <button className={styles["kakaoButton"]}
+        //             id="kakao-link-btn"
+        //             type="button"
+        //             onClick={() => shareKakao(r.toString(), "내 mbti는?! #채팅형_mbti_테스트", share_text)}
+        //     >
+        //         <img src="https://seeklogo.com/images/K/kakaotalk-logo-274D191B7B-seeklogo.com.png" height="30"/>
+        //     </button>
+        // </div>
     );
 };
 

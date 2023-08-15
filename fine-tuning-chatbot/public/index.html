@@ -7,7 +7,7 @@
 
     <link rel="preload" href="/next/static/css/59c0d71db0522974.css" as="style"/>
 <!--    <link rel="stylesheet" href="/next/static/css/59c0d71db0522974.css" data-n-g=""/>-->
-    <script src="/next/static/chunks/pages/index-56e8a4ce4db90f34.js" defer=""></script>
+    <script src="/next/static/chunks/pages/index-4018440dc90564a3.js" defer=""></script>
     <script src="/next/static/chunks/pages/index2-38a494364f4851b6.js" defer=""></script>
     <link data-next-font="" rel="preconnect" href="/" crossorigin="anonymous"/>
 
@@ -113,6 +113,25 @@
             <img class="gitIcon" src="free-icon-github-logo-25231.png" alt="구현 깃허브">
         </a>
     </div>
+    <div id="app">
+        <!-- 결과를 표시할 컨테이너 -->
+        <img
+                src="https://seeklogo.com/images/K/kakaotalk-logo-274D191B7B-seeklogo.com.png"
+                height="30"
+                onclick="shareKakaoFunction()"
+                style="cursor: pointer;"
+        />
+    </div>
+
+    <script>
+        // shareKakao.js에서 불러온 함수 사용
+        function shareKakaoFunction() {
+            const route = "URL_HERE"; // 원하는 URL
+            const title = "내 mbti는?! #채팅형_mbti_테스트";
+            const text = "공유할 내용"; // 원하는 공유 내용
+            shareKakao1(route, title, text);
+        }
+    </script>
 </div>
 
 
