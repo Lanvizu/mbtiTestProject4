@@ -37,15 +37,8 @@ export const shareKakao1 = (route, title, text) => { // url이 id값에 따라 �
     }
 };
 
-const Page1 = () => {
+const MBTITEST = () => {
     return (
-        // <div>
-        //     <h1>This is Page 1</h1>
-        //     <Link href="/index2">
-        //         <a>Go to Page 2</a>
-        //     </Link>
-        // </div>
-
         <div>
             <button className={styles["kakaoButton"]}
                     id="kakao-link-btn"
@@ -58,4 +51,4 @@ const Page1 = () => {
     );
 };
 
-export default Page1;
+export default MBTITEST;

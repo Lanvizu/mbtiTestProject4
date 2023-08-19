@@ -63,8 +63,6 @@ export const shareKakao = (route, title, text) => { // url이 id값에 따라 �
 const onShareKakaoClick = () => {
     shareKakaoLink(userId);
 };
-//_
-
 
 const scrollToBottom = () => {
     var el = document.getElementById('message-list');
@@ -86,11 +84,9 @@ const ChatApp = () => {
 
     useEffect(() => {
         const start = () => {
-            // NProgress.start();
             setLoading(true);
         };
         const end = () => {
-            // NProgress.done();
             setLoading(false);
         };
 
