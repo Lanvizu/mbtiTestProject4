@@ -195,7 +195,7 @@ const ChatApp = () => {
                     user_log += inputMessage + " \n";
                     //내용만 보여지게 표시
                     setInputMessage(""); // 메시지 전송 후 입력창 초기화
-                    var user_message = "\nfriend: " + inputMessage + " \n\n### \nyou: " //실제 챗봇에게 보내는 문자열 형식
+                    var user_message = "\nfriend: " + inputMessage + "\nyou: " //실제 챗봇에게 보내는 문자열 형식
                     if (need_ans_add == 1) {
                         user_message += ans_added[Math.floor(Math.random() * ans_added.length)]
                         need_ans_add = 0;
@@ -253,7 +253,7 @@ const ChatApp = () => {
                             //내용만 보여지게 표시
                             setInputMessage(""); // 메시지 전송 후 입력창 초기화
 
-                            var user_message = "\nfriend: " + inputMessage + " \n\n### \nyou: "//실제 챗봇에게 보내는 문자열 형식
+                            var user_message = "\nfriend: " + inputMessage + "\nyou: "//실제 챗봇에게 보내는 문자열 형식
                             if (need_ans_add == 1) {
                                 user_message += ans_added[Math.floor(Math.random() * ans_added.length)]
                                 need_ans_add = 0;
