@@ -50,7 +50,7 @@ const Page1 = () => {
             <button className={styles["kakaoButton"]}
                     id="kakao-link-btn"
                     type="button"
-                    onClick={() => shareKakao(r.toString(), "내 mbti는?! #채팅형_mbti_테스트", share_text)}
+                    onClick={() => shareKakao1(r.toString(), "내 mbti는?! #채팅형_mbti_테스트", share_text)}
             >
                 <img src="https://seeklogo.com/images/K/kakaotalk-logo-274D191B7B-seeklogo.com.png" height="30"/>
             </button>
