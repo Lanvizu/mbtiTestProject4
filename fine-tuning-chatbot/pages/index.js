@@ -17,19 +17,19 @@ export const shareKakao1 = (route, title, text) => { // url이 id값에 따라 �
             objectType: "feed", // 카카오 링크 공유 여러 type들 중 feed라는 타입 -> 자세한 건 카카오에서 확인
             content: {
                 title: "대화하러 가기",
-                description: text, // 인자값으로 받은 title
+                description: '내 mbti는?! #채팅형_mbti_테스트',
                 imageUrl: "https://user-images.githubusercontent.com/139981434/257801881-fbc96ead-3194-4745-be55-6b6d55524b51.png",
                 link: {
-                    mobileWebUrl: route, // 인자값으로 받은 route(uri 형태)
-                    webUrl: route
+                    mobileWebUrl: window.location.toString(),
+                    webUrl: window.location.toString()
                 }
             },
             buttons: [
                 {
                     title: "대화하러 가기",
                     link: {
-                        mobileWebUrl: route,
-                        webUrl: route
+                        mobileWebUrl: window.location.toString(),
+                        webUrl: window.location.toString()
                     }
                 }
             ]
@@ -52,3 +52,47 @@ const MBTITEST = () => {
 };
 
 export default MBTITEST;
+
+// 'use client';
+
+// import React, { useEffect } from "react";
+// export { Provider } from 'react-redux';
+// var Kakao;
+//
+// (function() {
+//     var e = document.createElement("script");
+//     e.src = "https://developers.kakao.com/sdk/js/kakao.min.js";
+//     e.async = true;
+//     document.head.appendChild(e);
+//     e.onload = function() {
+//         Kakao = window.Kakao;
+//
+//         // 카카오톡 SDK 초기화
+//         Kakao.init(process.env.NEXT_PUBLIC_API_KEY);
+//
+//         // 버튼 클릭 시 카카오톡 공유하기 창 열기
+//         document.getElementById('kakao-share-button').addEventListener('click', function() {
+//             Kakao.Link.sendDefault({
+//                 objectType: 'feed',
+//                 content: {
+//                     title: '대화하러 가기',
+//                     description: '내 mbti는?! #채팅형_mbti_테스트',
+//                     imageUrl: 'https://user-images.githubusercontent.com/139981434/257801881-fbc96ead-3194-4745-be55-6b6d55524b51.png', // 원하는 이미지의 URL을 입력합니다.
+//                     link: {
+//                         mobileWebUrl: window.location.toString(),
+//                         webUrl: window.location.toString()
+//                     }
+//                 },
+//                 buttons: [
+//                     {
+//                         title: "대화하러 가기",
+//                         link: {
+//                             mobileWebUrl: window.location.toString(),
+//                             webUrl: window.location.toString()
+//                         }
+//                     }
+//                 ]
+//             });
+//         });
+//     };
+// })();
