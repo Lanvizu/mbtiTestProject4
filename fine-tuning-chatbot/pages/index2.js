@@ -20,7 +20,6 @@ var ending = 0;
 var mid_check = 0;
 const max_tern = 20;
 
-
 var intro = 1;
 var questionslist = questions;
 

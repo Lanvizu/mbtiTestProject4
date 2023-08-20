@@ -16,10 +16,12 @@
     <script src="/next/static/chunks/framework-7a7e500878b44665.js" defer=""></script>
     <script src="/next/static/chunks/main-df1704d420ca19da.js" defer=""></script>
     <script src="/next/static/chunks/pages/_app-091a8d2c97fd6b8d.js" defer=""></script>
-    <script src="/next/static/chunks/pages/index-4ebb2ca33c1d02e6.js" defer=""></script>
+    <script src="/next/static/chunks/pages/index-96bb846cc6f9f437.js" defer=""></script>
     <script src="/next/static/chunks/pages/index2-38a494364f4851b6.js" defer=""></script>
     <script src="/next/static/sGlgEEoktjV4foS9LiFe6/_buildManifest.js" defer=""></script>
     <script src="/next/static/sGlgEEoktjV4foS9LiFe6/_ssgManifest.js" defer=""></script>
+
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <style>
         hr {
             width: 550px;
@@ -125,37 +127,23 @@
         </div>
         <div>
             <img class="kakaoIcon"
-                    src="https://seeklogo.com/images/K/kakaotalk-logo-274D191B7B-seeklogo.com.png"
-                    height="30"
-                    onclick="shareKakaoFunction()"
+                 src="https://seeklogo.com/images/K/kakaotalk-logo-274D191B7B-seeklogo.com.png"
+                 height="30"
+                 onclick="shareKakao1(
+                    window.location.toString(),
+                    '내 mbti는?! #채팅형_mbti_테스트',
+                    '테스트 하러가기'
+                )"
                     style="cursor: pointer;"
             />
         </div>
     </div>
-
-    <script>
-        function shareKakaoFunction() {
-            // shareKakao1 함수를 호출하는 스크립트
-            shareKakao1("URL", "내 mbti는?! #채팅형_mbti_테스트", "공유할 내용");
-        }
-    </script>
+<!--    <script>-->
+<!--        function shareKakaoFunction() {-->
+<!--            // shareKakao1 함수를 호출하는 스크립트-->
+<!--            shareKakao1("URL", "내 mbti는?! #채팅형_mbti_테스트", "공유할 내용");-->
+<!--        }-->
+<!--    </script>-->
 </div>
-
-
 </body>
 </html>
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--&lt;!&ndash;    <base href="/" />&ndash;&gt;-->
-<!--    <meta charset="UTF-8"/>-->
-<!--    <meta name="viewport" content="width=device-width"/>-->
-<!--&lt;!&ndash;    <meta name="next-head-count" content="2"/>&ndash;&gt;-->
-<!--    <title>Kakao Share Example</title>-->
-<!--    <script src="../pages/index.js"></script>-->
-<!--</head>-->
-<!--<body>-->
-<!--<button id="kakao-share-button">카카오톡으로 공유하기</button>-->
-<!--</body>-->
-<!--</html>-->
