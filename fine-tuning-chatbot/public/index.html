@@ -22,6 +22,14 @@
     <script src="/next/static/sGlgEEoktjV4foS9LiFe6/_ssgManifest.js" defer=""></script>
 
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<!--    <script src="https://t1.kakaocdn.net/kakao_js_sdk/${VERSION}/kakao.min.js"-->
+<!--            integrity="${INTEGRITY_VALUE}" crossorigin="anonymous"></script>-->
+    <script>
+        Kakao.init(process.env.NEXT_PUBLIC_API_KEY);
+
+        console.log(Kakao.isInitialized());
+    </script>
+
     <style>
         hr {
             width: 550px;
@@ -126,24 +134,48 @@
             </a>
         </div>
         <div>
-            <img class="kakaoIcon"
-                 src="https://seeklogo.com/images/K/kakaotalk-logo-274D191B7B-seeklogo.com.png"
-                 height="30"
-                 onclick="shareKakao1(
-                    window.location.toString(),
-                    '내 mbti는?! #채팅형_mbti_테스트',
-                    '테스트 하러가기'
-                )"
-                    style="cursor: pointer;"
-            />
+            <button
+                    id="kakao-link-btn"
+                    type="button"
+                    onclick="shareKakao()"
+            >
+                <img src="https://seeklogo.com/images/K/kakaotalk-logo-274D191B7B-seeklogo.com.png" height="30" />
+            </button>
         </div>
+
+        <script>
+            function shareKakao() {
+                if (window.Kakao) {
+                    const kakao = window.Kakao;
+                    if (!kakao.isInitialized()) {
+                        kakao.init(process.env.NEXT_PUBLIC_API_KEY); // Replace with your Kakao API key
+                    }
+                    const r = window.location;
+                    kakao.Link.sendDefault({
+                        objectType: "feed",
+                        content: {
+                            title: "대화하러 가기",
+                            description: "테스트 하러가기",
+                            imageUrl: "https://user-images.githubusercontent.com/139981434/257801881-fbc96ead-3194-4745-be55-6b6d55524b51.png",
+                            link: {
+                                mobileWebUrl: r.toString(),
+                                webUrl: r.toString()
+                            }
+                        },
+                        buttons: [
+                            {
+                                title: "대화하러 가기",
+                                link: {
+                                    mobileWebUrl: r.toString(),
+                                    webUrl: r.toString()
+                                }
+                            }
+                        ]
+                    });
+                }
+            }
+        </script>
     </div>
-<!--    <script>-->
-<!--        function shareKakaoFunction() {-->
-<!--            // shareKakao1 함수를 호출하는 스크립트-->
-<!--            shareKakao1("URL", "내 mbti는?! #채팅형_mbti_테스트", "공유할 내용");-->
-<!--        }-->
-<!--    </script>-->
 </div>
 </body>
 </html>
